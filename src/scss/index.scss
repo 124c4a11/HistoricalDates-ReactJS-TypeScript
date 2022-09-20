@@ -1,0 +1,44 @@
+@use './common/utils' as *;
+
+:root {
+  --blue: #3877ee;
+  --pink: #ef5da8;
+  --black-blue: #42567a;
+
+  --bg-color: #f4f5f9;
+  --border-color: #e3e6ed;
+  --border-color-darkened: #d0d5e0;
+  --border-color-dark: #929aa9;
+  --text-color: #42567a;
+
+  --border-width: 1px;
+
+  --duration: .25s;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'PT Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  color: var(--text-color);
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+button { cursor: pointer; }

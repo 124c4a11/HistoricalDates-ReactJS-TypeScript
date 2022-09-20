@@ -1,0 +1,39 @@
+@use '../../scss/common/functions' as *;
+@use '../../scss/common/breakpoints' as *;
+
+.pagination {
+  display: inline-flex;
+  flex-wrap: wrap;
+  vertical-align: middle;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.pagination__btn {
+  padding: em(5);
+  border: none 0;
+  border-radius: 50%;
+  font-size: 1rem;
+  background-color: transparent;
+
+  &::before {
+    content: '';
+    display: block;
+    width: em(6);
+    height: em(6);
+    border-radius: inherit;
+    background-color: #acb5c6;
+    transition-duration: var(--duration);
+  }
+
+  &:hover,
+  &:focus,
+  &_active {
+    &::before {
+      background-color: var(--black-blue);
+    }
+  }
+
+  &:focus { outline: none; }
+}

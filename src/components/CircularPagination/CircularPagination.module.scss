@@ -1,0 +1,104 @@
+@use '../../scss/common/functions' as *;
+@use '../../scss/common/breakpoints' as *;
+
+$duration: .25s;
+
+.circle {
+  position: relative;
+  width: rem(530);
+  height: rem(530);
+  padding: 0;
+  margin: 0;
+  border: var(--border-width) solid var(--border-color-darkened);
+  border-radius: 50%;
+  list-style: none;
+  font-size: rem(20);
+
+  @media (max-width: em($bp-xl)) {
+    width: 44vw;
+    height: 44vw;
+  }
+}
+
+.circle__item {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom;
+  height: 50%;
+}
+
+.circle__btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: em(56, 20);
+  height: em(56, 20);
+  padding: 0;
+  border: none 0;
+  border-radius: 50%;
+  font-size: rem(20);
+  background-color: transparent;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: em(-1);
+    left: em(-1);
+    transform: scale(.1);
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    border: solid var(--border-width) var(--border-color-dark);
+    background-color: var(--black-blue);
+    transition-duration: $duration;
+  }
+
+  &:hover,
+  &:focus,
+  &_active {
+    &::before {
+      transform: scale(1);
+      background-color: var(--bg-color);
+      transition: $duration 0s;
+    }
+
+    .circle__btn-number {
+      opacity: 1;
+      transition: $duration calc($duration / 2);
+    }
+  }
+
+  &_active {
+    .circle__btn-title {
+      opacity: 1;
+      transition: .1s .8s;
+    }
+  }
+
+  &:focus { outline: none; }
+}
+
+.circle__btn-text {
+  position: relative;
+  display: block;
+  pointer-events: none;
+}
+
+.circle__btn-number,
+.circle__btn-title{
+  opacity: 0;
+}
+
+.circle__btn-number {
+  transition: $duration 0;
+}
+
+.circle__btn-title {
+  position: absolute;
+  top: 0;
+  left: calc(100% + em(42, 20));
+  font-weight: 700;
+  transition-duration: $duration;
+}

@@ -1,0 +1,8 @@
+@use '../../scss/common/functions' as *;
+@use '../../scss/common/breakpoints' as *;
+
+.container {
+  max-width: rem(1440);
+  min-width: rem(320);
+  margin: 0 auto;
+}
