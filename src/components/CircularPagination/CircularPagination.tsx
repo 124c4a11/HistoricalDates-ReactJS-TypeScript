@@ -1,7 +1,6 @@
 import {
   DetailedHTMLProps,
   HTMLAttributes,
-  memo,
   useCallback,
   useEffect,
   useMemo,
@@ -23,7 +22,7 @@ interface CircularPaginationProps
   changeActiveNdx: (ndx: number) => any;
 }
 
-export const CircularPagination = memo(function CircularPagination({
+export function CircularPagination({
   items,
   currentNdx = 0,
   changeActiveNdx,
@@ -103,4 +102,4 @@ export const CircularPagination = memo(function CircularPagination({
       ))}
     </ul>
   );
-});
+}

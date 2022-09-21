@@ -106,10 +106,6 @@
   & + &  { margin-left: em(80, 200); }
 }
 
-.date-range__item_blue { color: var(--blue); }
-
-.date-range__item_pink{ color: var(--pink); }
-
 .date-range__pagination-centerer {
   position: absolute;
   top: 50%;
@@ -134,12 +130,13 @@
 .controls__steps {
   font-size: 14px;
   margin-bottom: rem(20);
+
   @media (max-width: em($bp-sm)) {
     margin-bottom: rem(10);
   }
 }
 
-.controls__btn {
+button.controls__btn {
   & + & { margin-left: em(20); }
 
   @media (max-width: em($bp-sm)) {

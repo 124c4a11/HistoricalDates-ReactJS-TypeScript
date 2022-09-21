@@ -3,6 +3,7 @@ import cn from 'classnames';
 import styles from './HistoricSection.module.scss';
 
 import {
+  AnimatedCounter,
   Button,
   CircularPagination,
   Container,
@@ -34,22 +35,16 @@ export function HistoricSection(): JSX.Element {
       <Container className={styles['section__container']}>
         <h1 className={styles['section__title']}>Исторические даты</h1>
         <div className={styles['date-range']}>
-          <span
-            className={cn(
-              styles['date-range__item'],
-              styles['date-range__item_blue'],
-            )}
-          >
-            2015
-          </span>
-          <span
-            className={cn(
-              styles['date-range__item'],
-              styles['date-range__item_pink'],
-            )}
-          >
-            2022
-          </span>
+          <AnimatedCounter
+            className={cn(styles['date-range__item'], 'text_blue')}
+            from={dateRanges[0].scince}
+            to={dateRanges[activeNdx].scince}
+          />
+          <AnimatedCounter
+            className={cn(styles['date-range__item'], 'text_pink')}
+            from={dateRanges[0].until}
+            to={dateRanges[activeNdx].until}
+          />
           {dateRanges?.length ? (
             <div className={styles['date-range__pagination-centerer']}>
               <CircularPagination

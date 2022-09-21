@@ -1,7 +1,6 @@
 import {
   DetailedHTMLProps,
   HTMLAttributes,
-  memo,
   useCallback,
   useEffect,
   useState,
@@ -22,7 +21,7 @@ interface PaginationProps
   changeActiveNdx: (ndx: number) => any;
 }
 
-export const Pagination = memo(function Pagination({
+export function Pagination({
   className,
   items,
   currentNdx = 0,
@@ -62,4 +61,4 @@ export const Pagination = memo(function Pagination({
       ))}
     </ul>
   );
-});
+}
