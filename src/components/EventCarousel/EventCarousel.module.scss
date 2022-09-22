@@ -1,0 +1,39 @@
+@use '../../scss/common/functions' as *;
+@use '../../scss/common/breakpoints' as *;
+
+.carousel {
+  position: relative;
+  padding: 0 rem(80);
+
+  @media (max-width: em($bp-lg)) {
+    padding: 0;
+  }
+}
+
+.carousel__card {
+  @media (max-width: em($bp-lg)) {
+    padding-left: rem(20);
+  }
+}
+
+.carousel__btn {
+  position: absolute;
+  top: 50%;
+  transition: opacity var(--duration);
+
+  &:disabled { opacity: 0; }
+
+  @media (max-width: em($bp-lg)) {
+    display: none;
+  }
+}
+
+.carousel__btn_prev {
+  left: rem(40);
+  transform: translate(-50%, -50%);
+}
+
+.carousel__btn_next {
+  right: rem(40);
+  transform: translate(50%, -50%);
+}

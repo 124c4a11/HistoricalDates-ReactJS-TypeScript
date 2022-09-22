@@ -1,0 +1,27 @@
+@use '../../scss/common/functions' as *;
+@use '../../scss/common/breakpoints' as *;
+
+.card {
+  font-size: rem(20);
+
+  p:first-of-type { margin-top: 0; }
+
+  :last-child { margin-bottom: 0; }
+
+  @media (max-width: em($bp-sm)) {
+    font-size: rem(14);
+  }
+}
+
+.card__title {
+  margin-top: 0;
+  margin-bottom: em(15, 25);
+  font-size: rem(25);
+  line-height: 1.25;
+  font-family: 'Bebas Neue', sans-serif;
+  color: var(--blue);
+
+  @media (max-width: em($bp-sm)) {
+    font-size: 1rem;
+  }
+}

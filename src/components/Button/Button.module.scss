@@ -8,16 +8,8 @@
   width: em(50);
   height: em(50);
   padding: 0;
-  font-size: 1rem;
-  border: var(--border-width) solid var(--border-color-dark);
   border-radius: 50%;
   background-color: transparent;
-  transition: background-color var(--duration), opacity var(--duration);
-
-  &:hover,
-  &:focus {
-    background-color: #fff;
-  }
 
   &:focus {
     outline: none;
@@ -29,6 +21,32 @@
   }
 }
 
+// size
+.btn_md { font-size: 1rem; }
+
+.btn_sm { font-size: rem(13); }
+
+
+// variant
+.btn_outline {
+  border: var(--border-width) solid var(--border-color-dark);
+  transition: background-color var(--duration), opacity var(--duration);
+
+  &:hover,
+  &:focus {
+    background-color: #fff;
+  }
+}
+
+.btn_white {
+  border: 0 none;
+  background-color: #fff;
+  box-shadow: 0 0 em(15) 0 rgba(56, 119, 238, 0.1);
+  color: var(--blue);
+}
+
+
+// action
 .btn_next,
 .btn_previous {
   &::before {

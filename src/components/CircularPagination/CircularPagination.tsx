@@ -3,7 +3,6 @@ import {
   HTMLAttributes,
   useCallback,
   useEffect,
-  useMemo,
   useState,
 } from 'react';
 import cn from 'classnames';
@@ -19,20 +18,21 @@ interface CircularPaginationProps
   > {
   items: IRange[];
   currentNdx?: number;
+  duration?: number;
   changeActiveNdx: (ndx: number) => any;
 }
 
 export function CircularPagination({
   items,
   currentNdx = 0,
+  duration = 0.8,
   changeActiveNdx,
   ...props
 }: CircularPaginationProps): JSX.Element {
-  const duration = 0.8;
   const [activeNdx, setActiveNdx] = useState<number>(0);
   const [circleDeg, setCircleDeg] = useState<number>(0);
 
-  const stepDeg = useMemo(() => 360 / items.length, [items]);
+  const stepDeg = 360 / items.length;
 
   function getItemDeg(ndx: number) {
     const initialDegOffset = 30;

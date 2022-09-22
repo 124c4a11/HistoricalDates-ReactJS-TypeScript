@@ -1,19 +1,22 @@
+import { useState } from 'react';
 import cn from 'classnames';
 
 import styles from './HistoricSection.module.scss';
 
+import { dateRanges } from '../../data/date-ranges';
+import { getFomatedNumString } from '../../utils/getFormatedNumString';
 import {
   AnimatedCounter,
   Button,
   CircularPagination,
   Container,
+  EventCarousel,
   Pagination,
 } from '../../components';
-import { dateRanges } from '../../data/date-ranges';
-import { useState } from 'react';
-import { getFomatedNumString } from '../../utils/getFormatedNumString';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export function HistoricSection(): JSX.Element {
+  const duration = 0.8;
   const [activeNdx, setActiveNdx] = useState<number>(0);
 
   function next() {
@@ -51,6 +54,7 @@ export function HistoricSection(): JSX.Element {
                 currentNdx={activeNdx}
                 items={dateRanges}
                 changeActiveNdx={setActiveNdx}
+                duration={duration}
               />
             </div>
           ) : null}
@@ -84,6 +88,23 @@ export function HistoricSection(): JSX.Element {
             </div>
           ) : null}
         </div>
+        {dateRanges?.length ? (
+          <AnimatePresence exitBeforeEnter initial={false}>
+            <motion.div
+              className={styles['event-carousel']}
+              key={dateRanges[activeNdx].id}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: duration / 2 }}
+            >
+              <h2 className={styles['event-crousel__title']}>
+                {dateRanges[activeNdx].title}
+              </h2>
+              <EventCarousel events={dateRanges[activeNdx].events} />
+            </motion.div>
+          </AnimatePresence>
+        ) : null}
       </Container>
     </section>
   );

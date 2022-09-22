@@ -23,14 +23,22 @@
 
 .section__container {
   min-height: 100vh;
-  padding-top: rem(155);
-  padding-bottom: rem(105);
+  padding: rem(155) 0 rem(80);
   border-left: solid var(--border-width) var(--border-color);
   border-right: solid var(--border-width) var(--border-color);
 
   @media (max-width: em($bp-xl)) {
     border-left: 0 none;
     border-right: 0 none;
+  }
+
+  @media (max-width: em($bp-lg)) {
+    padding: rem(60) 0 rem(20);
+  }
+
+  @media (max-width: em($bp-md)) {
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -97,8 +105,13 @@
     font-size: 16.6vw;
   }
 
+  @media (max-width: em($bp-md)) {
+    margin: .5em 0;
+  }
+
   @media (max-width: em(338)) {
     font-size: rem(56);
+    margin: .9em 0;
   }
 }
 
@@ -120,10 +133,19 @@
 .controls {
   display: flex;
   align-items: center;
-  padding: rem(38) rem(20) rem(20) rem(80);
+  padding-right: rem(20);
+  padding-left: rem(80);
+
+  * + & { margin-top: rem(38); }
 
   @media (max-width: em($bp-lg)) {
     padding-left: rem(20);
+  }
+
+  @media (max-width: em($bp-md)) {
+    order: 1;
+
+    * + & { margin-top: rem(20); }
   }
 }
 
@@ -158,5 +180,40 @@ button.controls__btn {
 
   @media (max-width: em($bp-sm)) {
     padding-right: rem(80);
+  }
+}
+
+.event-carousel {
+  * + & { margin-top: rem(50); }
+
+  @media (max-width: em($bp-md)) {
+    flex-grow: 1;
+    margin-top: 0;
+  }
+}
+
+.event-crousel__title {
+  position: relative;
+  padding: 0 rem(20) rem(20);
+  margin: 0 0 rem(25);
+  display: none;
+  font-size: rem(25);
+
+  &::before {
+    content: '';
+    position: absolute;
+    right: rem(20);
+    left: rem(20);
+    bottom: 0;
+    height: var(--border-width);
+    background-color: var(--border-color-darkened);
+  }
+
+  @media (max-width: em($bp-md)) {
+    display: block;
+  }
+
+  @media (max-width: em($bp-sm)) {
+    font-size: 1rem;
   }
 }
