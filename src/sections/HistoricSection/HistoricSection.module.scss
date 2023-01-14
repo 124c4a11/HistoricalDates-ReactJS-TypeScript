@@ -116,6 +116,8 @@
 }
 
 .date-range__item {
+  pointer-events: none;
+
   & + &  { margin-left: em(80, 200); }
 }
 
