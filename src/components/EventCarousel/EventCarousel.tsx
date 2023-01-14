@@ -27,24 +27,17 @@ export function EventCarousel({
     <div className={cn(styles['carousel'], className)} {...props}>
       <Swiper
         grabCursor
+        slidesPerView="auto"
         breakpoints={{
-          320: {
-            slidesPerView: 2,
-            spaceBetween: 0,
-          },
-          576: {
-            slidesPerView: 2,
-            spaceBetween: 0,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 0,
-          },
           992: {
-            slidesPerView: 3,
-            spaceBetween: 20,
+            slidesPerView: 2,
+            spaceBetween: 40,
           },
           1200: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+          1400: {
             slidesPerView: 3,
             spaceBetween: 80,
           },
@@ -58,7 +51,7 @@ export function EventCarousel({
         {events?.length ? (
           <>
             {events.map((event) => (
-              <SwiperSlide key={event.id}>
+              <SwiperSlide className={styles['carousel__slide']} key={event.id}>
                 <EventCard data={event} className={styles['carousel__card']} />
               </SwiperSlide>
             ))}

@@ -10,6 +10,17 @@
   }
 }
 
+.carousel__slide {
+  @media (max-width: em($bp-sm)) {
+    width: rem(267);
+  }
+
+  @media(min-width: em($bp-sm + 1)) and (max-width: em($bp-lg)) {
+    width: rem(400);
+    margin-right: rem(20);
+  }
+}
+
 .carousel__card {
   @media (max-width: em($bp-lg)) {
     padding-left: rem(20);
